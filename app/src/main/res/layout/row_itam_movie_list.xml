@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:elevation="20dp"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            >
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMovie"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:orientation="vertical"
+                android:padding="10dp"
+                android:weightSum="5"
+
+                >
+                <TextView
+                    android:id="@+id/tvTitelMovie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_gravity="start"
+                    android:layout_weight="4"
+                    android:maxLines="2"
+                    android:minLines="2"
+                    android:textSize="12dp"/>
+
+                <TextView
+                    android:id="@+id/tvReleseDateMovie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="italic"
+                    android:textSize="15dp"
+                    android:layout_marginTop="9dp"
+                    />
+                <TextView
+                    android:id="@+id/tvOverviewDateMovie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="normal"
+                    android:maxLines="7"
+                    android:minLines="7"
+                    android:textSize="13dp"
+                    android:layout_marginTop="9dp"
+                    />
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+</LinearLayout>
