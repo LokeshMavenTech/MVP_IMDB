@@ -11,4 +11,5 @@ public interface ApiInterface {
             @Query("api_key")String api_key,
             @Query("page") int pageNo
     );
+
 }

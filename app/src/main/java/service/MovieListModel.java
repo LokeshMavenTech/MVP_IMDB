@@ -38,4 +38,5 @@ public class MovieListModel implements MovieListContact.Model {
         });
 
     }
+
 }

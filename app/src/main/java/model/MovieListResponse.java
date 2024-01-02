@@ -30,4 +30,5 @@ public class MovieListResponse {
     public void setResults(List<Movie> results) {
         this.results = results;
     }
+
 }

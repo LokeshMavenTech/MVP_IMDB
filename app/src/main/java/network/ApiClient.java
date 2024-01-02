@@ -10,7 +10,7 @@ public class ApiClient {
     public static final String API_KEY = "9611ad116cf8e918fd77cfebc08a7c41";
 
 
-    public static final String IMAGE_BASE_URL="https://image.tmdb.org/t/p/original/";
+    public static final String IMAGE_BASE_URL="https://image.tmdb.org/t/p/original";
 
     public static  Retrofit getClient(){
         if(retrofit==null){

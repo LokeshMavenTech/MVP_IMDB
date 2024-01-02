@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements MovieListContact.
 
 
     private MoviePresenter moviePresenter;
-    private RecyclerView recyclerView ;
+    private RecyclerView recyclerView;
     private List<Movie> movieList;
     private MovieListAdapter movieListAdapter;
     private ProgressBar progressBar;
@@ -37,18 +37,18 @@ public class MainActivity extends AppCompatActivity implements MovieListContact.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       recyclerView = findViewById(R.id.rvMovieList);
-       progressBar =findViewById(R.id.progressBar);
+        recyclerView = findViewById(R.id.rvMovieList);
+        progressBar = findViewById(R.id.progressBar);
 
-       movieList= new ArrayList<>();
+        movieList = new ArrayList<>();
 
 
-       linearLayoutManager = new LinearLayoutManager(this);
-       recyclerView.setLayoutManager(linearLayoutManager);
-       recyclerView.setHasFixedSize(true);
-       movieListAdapter = new MovieListAdapter(movieList, this, linearLayoutManager);
-       moviePresenter = new MoviePresenter(this);
-       moviePresenter.requestDataFromServer();
+        linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(true);
+        movieListAdapter = new MovieListAdapter(movieList, this, linearLayoutManager);
+        moviePresenter = new MoviePresenter(this);
+        moviePresenter.requestDataFromServer();
         recyclerView.setAdapter(movieListAdapter);
 
 //      setDataToRecyclerView(movieListArray);
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements MovieListContact.
     @Override
     public void setDataToRecyclerView(List<Movie> movieListArray) {
         movieList.addAll(movieListArray);
-       // movieListAdapter=new MovieListAdapter(new GridLayoutManager(this,2));
+        // movieListAdapter=new MovieListAdapter(new GridLayoutManager(this,2));
         recyclerView.setAdapter(movieListAdapter);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
@@ -77,15 +77,14 @@ public class MainActivity extends AppCompatActivity implements MovieListContact.
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(movieListAdapter);
 
-
-
     }
-
 
     @Override
     public void onResponseFailure(Throwable throwable) {
-        Log.e("Error:",throwable.getMessage());
+        Log.e("Error:", throwable.getMessage());
         Toast.makeText(this, "Error in Gating Data", Toast.LENGTH_SHORT).show();
 
     }
+
+
 }

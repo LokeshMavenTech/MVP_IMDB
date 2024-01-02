@@ -1,5 +1,7 @@
 package model;
 
+import android.os.Parcel;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -50,6 +52,36 @@ public class Movie {
     @SerializedName("vote_count")
     @Expose
     private Integer voteCount;
+
+    public Movie(Boolean adult, String backdropPath, List<Integer> genreIds, Integer id, String originalLanguage, String originalTitle, String overview, Double popularity, String posterPath, String releaseDate, String title, Boolean video, Double voteAverage, Integer voteCount) {
+        this.adult = adult;
+        this.backdropPath = backdropPath;
+        this.genreIds = genreIds;
+        this.id = id;
+        this.originalLanguage = originalLanguage;
+        this.originalTitle = originalTitle;
+        this.overview = overview;
+        this.popularity = popularity;
+        this.posterPath = posterPath;
+        this.releaseDate = releaseDate;
+        this.title = title;
+        this.video = video;
+        this.voteAverage = voteAverage;
+        this.voteCount = voteCount;
+    }
+
+    protected Movie(Parcel in) {
+        title = in.readString();
+        backdropPath = in.readString();
+        posterPath = in.readString();
+        releaseDate = in.readString();
+        id = in.readInt();
+        voteAverage = in.readDouble();
+        overview = in.readString();
+        voteCount = in.readInt();
+        originalLanguage = in.readString();
+    }
+
 
     public Boolean getAdult() {
         return adult;
@@ -162,6 +194,27 @@ public class Movie {
     public void setVoteCount(Integer voteCount) {
         this.voteCount = voteCount;
     }
+
+
+
+
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeString(title);
+        dest.writeString(backdropPath);
+        dest.writeString(posterPath);
+        dest.writeString(releaseDate);
+        dest.writeInt(id);
+//        dest.writeInt(runtime);
+        dest.writeFloat(voteAverage);
+        dest.writeString(movie_overview);
+        dest.writeInt(vote_count);
+        dest.writeString(original_language);
+    }
+
+
+
+
+
 
 
 }

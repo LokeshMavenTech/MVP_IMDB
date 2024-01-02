@@ -14,7 +14,7 @@ public class MoviePresenter implements MovieListContact.Presenter,MovieListConta
 
     public MoviePresenter(MovieListContact.View movieListView) {
         this.movieListView = movieListView;
-      movieListModel =new MovieListModel();
+        movieListModel =new MovieListModel();
     }
 
     @Override
