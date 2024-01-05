@@ -28,7 +28,7 @@ public class MoviePresenter implements MovieListContact.Presenter,MovieListConta
         if(movieListView != null){
             movieListView.showProgress();
         }
-        movieListModel.getMovieList(this,pageNo);
+        movieListModel.getMovieList(this,pageNo+1);
 
     }
 
@@ -57,5 +57,13 @@ public class MoviePresenter implements MovieListContact.Presenter,MovieListConta
             movieListView.hideProgress();
         }
 
+    }
+
+@Override
+    public void getTopRatedDataFromServer() {
+        if (movieListView != null) {
+            movieListView.showProgress();
+        }
+        movieListModel.getTopRatedMovieList(this, 1);
     }
 }

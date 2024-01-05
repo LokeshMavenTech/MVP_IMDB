@@ -40,14 +40,13 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
         Movie movie = movieList.get(position);
 
         holder.tvMovieTitel.setText(movie.getTitle());
         holder.tvMovieReleseDate.setText(movie.getReleaseDate());
         holder.tvMovieOverView.setText(movie.getOverview());
 
-        String imageUrl = ApiClient.IMAGE_BASE_URL + movie.getPosterPath();
+        String imageUrl = ApiClient.IMAGE_BASE_URL + movie.getBackdropPath();
         Glide.with(context).load(imageUrl).into(holder.ivMovie);
     }
 
@@ -74,5 +73,8 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
     public void setLayoutManager(RecyclerView recyclerView) {
         recyclerView.setLayoutManager(layoutManager);
 
+    }
+    public boolean isTopRated() {
+        return isTopRated;
     }
 }

@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +31,21 @@ public class MainActivity extends AppCompatActivity implements MovieListContact.
     private List<Movie> movieList;
     private MovieListAdapter movieListAdapter;
     private ProgressBar progressBar;
+
+
+
+    BottomNavigationView bottomNavigationView;
+    BottomNavigationItemView bottomNavigationItemView;
+    BottomNavigationItemView bottomNavigationItemView1;
+
+
+
+
+
+
+
+
+
 //    public List<Movie> movieListArray;
 
     private LinearLayoutManager linearLayoutManager;
@@ -40,18 +58,40 @@ public class MainActivity extends AppCompatActivity implements MovieListContact.
         recyclerView = findViewById(R.id.rvMovieList);
         progressBar = findViewById(R.id.progressBar);
 
-        movieList = new ArrayList<>();
 
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationItemView = findViewById(R.id.top_rated);
+        bottomNavigationItemView1 = findViewById(R.id.home);
+
+
+
+        movieList = new ArrayList<>();
 
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
-        movieListAdapter = new MovieListAdapter(movieList, this, linearLayoutManager);
+        movieListAdapter = new MovieListAdapter(movieList, this, linearLayoutManager, false);
         moviePresenter = new MoviePresenter(this);
-        moviePresenter.requestDataFromServer();
-        recyclerView.setAdapter(movieListAdapter);
 
-//      setDataToRecyclerView(movieListArray);
+        // Request popular movies
+       moviePresenter.requestDataFromServer();
+
+        // Request top-rated movies
+        bottomNavigationItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moviePresenter.requestDataFromServer();
+            }
+        });
+        bottomNavigationItemView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                moviePresenter.getTopRatedDataFromServer();
+            }
+        });
+
+        recyclerView.setAdapter(movieListAdapter);
     }
 
     @Override
@@ -67,16 +107,19 @@ public class MainActivity extends AppCompatActivity implements MovieListContact.
 
     @Override
     public void setDataToRecyclerView(List<Movie> movieListArray) {
+        movieList.clear();
+        // Add the new data
         movieList.addAll(movieListArray);
-        // movieListAdapter=new MovieListAdapter(new GridLayoutManager(this,2));
-        recyclerView.setAdapter(movieListAdapter);
-
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
 
-        movieListAdapter = new MovieListAdapter(movieList, this, gridLayoutManager);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        recyclerView.setAdapter(movieListAdapter);
-
+        if (movieListAdapter == null) {
+            movieListAdapter = new MovieListAdapter(movieList, this, gridLayoutManager,false);
+            recyclerView.setLayoutManager(gridLayoutManager);
+            recyclerView.setAdapter(movieListAdapter);
+        } else {
+            // Notify the adapter that the data has changed
+            movieListAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override

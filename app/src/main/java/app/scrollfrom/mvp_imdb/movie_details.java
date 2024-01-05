@@ -40,48 +40,48 @@
 //        GetDataFromIntent();
 //    }
 //
-////    private void GetDataFromIntent(){
-////
-////        if (getIntent().hasExtra("movie")){
-////            MovieListModel movieModel = getIntent().getParcelableExtra("movie");
-////
-////            titleDetails.setText(movieModel.getTitle());
-////
-////            duration.setText("Runtime : " +movieModel.getRuntime()+" Mins");
-////
-////            vote.setText("Vote count : "+ movieModel.getVote_count());
-//////            ratingBarDetails.setRating("rating"+movieModel.getVote_average());
-////
-//////           OD.setText(" " + movieModel.getMovie_overview());
-////            releseDate.setText("Release Date : " + movieModel.getRelease_date());
-////            if (movieModel != null) {
-////                String overview = movieModel.getMovie_overview();
-////                if (!TextUtils.isEmpty(overview)) {
-////                    overviewDetails.setText(" " + overview);
-////                } else {
-////                    overviewDetails.setText("No overview available");
-////                }
-////            }
+//    private void GetDataFromIntent(){
+//
+//        if (getIntent().hasExtra("movie")){
+//            MovieListModel movieModel = getIntent().getParcelableExtra("movie");
+//
+//            titleDetails.setText(movieModel.getTitle());
+//
+//            duration.setText("Runtime : " +movieModel.getRuntime()+" Mins");
+//
+//            vote.setText("Vote count : "+ movieModel.getVote_count());
+//           ratingBarDetails.setRating("rating"+movieModel.getVote_average());
+//
+//         OD.setText(" " + movieModel.getMovie_overview());
+//            releseDate.setText("Release Date : " + movieModel.getRelease_date());
+//            if (movieModel != null) {
+//                String overview = movieModel.getMovie_overview();
+//                if (!TextUtils.isEmpty(overview)) {
+//                    overviewDetails.setText(" " + overview);
+//                } else {
+//                    overviewDetails.setText("No overview available");
+//                }
+//            }
 //
 //
 //
-////            Log.v("Tag", "X" + movieModel.getMovie_overview());
+//            Log.v("Tag", "X" + movieModel.getMovie_overview());
 //
-////            Glide.with(this)
-////                    .load("https://image.tmdb.org/t/p/original/"
-////                            + movieModel.getBackdrop_path())
-////                    .into(imageViewDetails);
+//            Glide.with(this)
+//                    .load("https://image.tmdb.org/t/p/original/"
+//                            + movieModel.getBackdrop_path())
+//                    .into(imageViewDetails);
 //
-////
-////            Glide.with(this)
-////                    .load("https://image.tmdb.org/t/p/original/" + movieModel.getBackdrop_path())
-////                    .placeholder(R.drawable.defult_movie) // Set the default image resource
-////                    .into(imageViewDetails);
-////
-////
-////        }
-////
-////    }
+//
+//            Glide.with(this)
+//                    .load("https://image.tmdb.org/t/p/original/" + movieModel.getBackdrop_path())
+//                    .placeholder(R.drawable.defult_movie) // Set the default image resource
+//                    .into(imageViewDetails);
+//
+//
+//        }
+//
+//    }
 //
 //}
 

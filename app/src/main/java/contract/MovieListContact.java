@@ -14,6 +14,7 @@ public interface MovieListContact {
            void onFailure(Throwable t);
        }
        void  getMovieList( onFinishedListener onFinishedListener,int pageNo);
+        void getTopRatedMovieList(onFinishedListener onFinishedListener, int pageNo); // Add this line
 
     }
     interface View{
@@ -26,6 +27,7 @@ public interface MovieListContact {
         void onDestroy();
         void getMoreData(int pageNo);
         void requestDataFromServer();
+        void getTopRatedDataFromServer();
     }
 
 

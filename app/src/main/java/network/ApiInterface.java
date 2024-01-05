@@ -12,6 +12,15 @@ public interface ApiInterface {
             @Query("api_key")String api_key,
             @Query("page") int pageNo
     );
+
+    @GET("3/movie/top_rated")
+    Call<MovieListResponse> getTopRated(
+            @Query("api_key")String api_key,
+            @Query("page") int page
+    );
+
+
+
     @GET("3/movie/{movie_id}?")
     Call<MovieListResponse> getMovie(
             @Path("movie_id") int movie_id,
