@@ -2,6 +2,8 @@ package model;
 
 import android.os.Parcel;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -205,10 +207,10 @@ public class Movie {
         dest.writeString(releaseDate);
         dest.writeInt(id);
 //        dest.writeInt(runtime);
-        dest.writeFloat(voteAverage);
-        dest.writeString(movie_overview);
-        dest.writeInt(vote_count);
-        dest.writeString(original_language);
+        dest.writeDouble(voteAverage);
+        dest.writeString(overview);
+        dest.writeInt(voteCount);
+        dest.writeString(originalLanguage);
     }
 
 

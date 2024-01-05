@@ -23,10 +23,12 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
     private List<Movie> movieList;
     private Context context;
     private RecyclerView.LayoutManager layoutManager;
-    public MovieListAdapter(List<Movie> movieList, Context context, RecyclerView.LayoutManager layoutManager) {
+    private boolean isTopRated;
+    public MovieListAdapter(List<Movie> movieList, Context context, RecyclerView.LayoutManager layoutManager, boolean isTopRated) {
         this.movieList = movieList;
         this.context = context;
         this.layoutManager = layoutManager;
+        this.isTopRated = isTopRated;
     }
 
     @NonNull
